@@ -6,27 +6,52 @@
 </head>
 
 <body>
-<!-- 1. Before you can make any part of our site work, you need to create an array of strings, 
-each one related to a topic that interests you. Save it to a variable called topics.
-(We chose animals for our theme, but you can make a list to your own liking.) -->
+    <div id="empty-div"></div>
 
-<!-- 2. Your app should take the topics in this array and create buttons in your HTML.
-(Try using a loop that appends a button for each string in the array.) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script type="text/javascript">
+        // 1. Before you can make any part of our site work, you need to create an array of strings, 
+        // each one related to a topic that interests you. Save it to a variable called topics.
+        // (We chose animals for our theme, but you can make a list to your own liking.)
+        var topics = ["toyota", "mazda", "ford", "nissan", "mclaren", "bmw", 
+        "subaru", "honda", "audi", "tesla", "aston martin"];
 
-<!-- 3. When the user clicks on a button, the page should grab 10 static, non-animated gif 
-images from the GIPHY API and place them on the page. -->
+        // 2. Your app should take the topics in this array and create buttons in your HTML.
+        // (Try using a loop that appends a button for each string in the array.)
+        for (var i = 0; i < topics.length; i++) {
+            var btnDiv = $("<button>" + topics[i] + "<button>");
+            $("#empty-div").append(btnDiv);
+        }
 
-<!-- 4. When the user clicks one of the still GIPHY images, the gif should animate. 
-If the user clicks the gif again, it should stop playing. -->
+        // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif 
+        // images from the GIPHY API and place them on the page.
+        // hint?: $(".gif").on("click", function() {}
+        $("button").on("click", function() {
+            $.ajax({
+                url: "http://api.giphy.com/v1/gifs/search?q=" + this + "&api_key=qxSkk3PrLddbMzsIAi33MG0osLFWaNkB&limit=10",
+                method: "GET"
+            }).then(function(response){
+                console.log(response);
+                var results = response.data;
 
-<!-- 5. Under every gif, display its rating (PG, G, so on). -->
+                for (var i = 0; i < results.length; i++) {
+                    var topDiv = $("<div>");
+                }
+            });
+        });
 
-<!-- 6. This data is provided by the GIPHY API.
-Only once you get images displaying with button presses should you move on to the next step. -->
+        // 4. When the user clicks one of the still GIPHY images, the gif should animate. 
+        // If the user clicks the gif again, it should stop playing.
 
-<!-- 7. Add a form to your page takes the value from a user input box and adds it into your topics array. Then make a function call that takes each topic in the array remakes the buttons on the page. -->
+        // 5. Under every gif, display its rating (PG, G, so on).
 
-    
+        // 6. This data is provided by the GIPHY API.
+        // Only once you get images displaying with button presses should you move on to the next step.
+
+        // 7. Add a form to your page takes the value from a user input box and adds it into your topics array. 
+        // Then make a function call that takes each topic in the array remakes the buttons on the page.
+
+    </script>
 </body>
 </html>
