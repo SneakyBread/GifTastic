@@ -21,10 +21,10 @@
         // 2. Your app should take the topics in this array and create buttons in your HTML.
         // (Try using a loop that appends a button for each string in the array.)
         for (var i = 0; i < topics.length; i++) {
-            var btnCreator = $("<button data-make='" + topics[i] +  "'>" + topics[i] + "</button>");
+            var btnCreator = $("<button class='gif' data-make='" + topics[i] +  "'>" + topics[i] + "</button>");
                 // add this to HTML ex: <button data-make='toyota'>toyota</button>
-                "Hans 'Alexander'" + "Tang"
-                "Hans 'Alexander' Tang"
+                // "Hans 'Alexander'" + "Tang"
+                // "Hans 'Alexander' Tang"
             $("#empty-div").append(btnCreator);
         }
         // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif 
@@ -54,6 +54,9 @@
 
         // 4. When the user clicks one of the still GIPHY images, the gif should animate. 
         // If the user clicks the gif again, it should stop playing.
+        $(".gif").on("click", function(){
+
+        })
 
         // 5. Under every gif, display its rating (PG, G, so on).
 
