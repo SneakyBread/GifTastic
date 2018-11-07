@@ -21,11 +21,12 @@
         // 2. Your app should take the topics in this array and create buttons in your HTML.
         // (Try using a loop that appends a button for each string in the array.)
         for (var i = 0; i < topics.length; i++) {
-            var btnCreator = $("<button>" + topics[i] + "<button>");
-                // add this to HTML ex: <button data-make="toyota">toyota</button>
+            var btnCreator = $("<button data-make='" + topics[i] +  "'>" + topics[i] + "</button>");
+                // add this to HTML ex: <button data-make='toyota'>toyota</button>
+                "Hans 'Alexander'" + "Tang"
+                "Hans 'Alexander' Tang"
             $("#empty-div").append(btnCreator);
         }
-
         // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif 
         // images from the GIPHY API and place them on the page.
         $("button").on("click", function() {
