@@ -7,6 +7,7 @@
 
 <body>
     <div id="empty-div"></div>
+    <div id="gif_holder"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -20,23 +21,32 @@
         // 2. Your app should take the topics in this array and create buttons in your HTML.
         // (Try using a loop that appends a button for each string in the array.)
         for (var i = 0; i < topics.length; i++) {
-            var btnDiv = $("<button>" + topics[i] + "<button>");
-            $("#empty-div").append(btnDiv);
+            var btnCreator = $("<button>" + topics[i] + "<button>");
+                // add this to HTML ex: <button data-make="toyota">toyota</button>
+            $("#empty-div").append(btnCreator);
         }
 
         // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif 
         // images from the GIPHY API and place them on the page.
-        // hint?: $(".gif").on("click", function() {}
         $("button").on("click", function() {
+            var carMake = $(this).attr("data-make");
+            console.log("Car make selected: " + carMake);
+
             $.ajax({
-                url: "http://api.giphy.com/v1/gifs/search?q=" + this + "&api_key=qxSkk3PrLddbMzsIAi33MG0osLFWaNkB&limit=10",
+                url: "http://api.giphy.com/v1/gifs/search?q=" + carMake + "&api_key=qxSkk3PrLddbMzsIAi33MG0osLFWaNkB&limit=10",
                 method: "GET"
             }).then(function(response){
                 console.log(response);
                 var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                    var topDiv = $("<div>");
+                    var topicDiv = $("<div>");
+                    var topicImage = $("<img>");
+                    var rating = $("<p>").text("Rating: " + results[i].rating);
+                    topicImage.attr("src", results[i].images.fixed_height.url);
+                    topicDiv.append(topicImage);
+                    topicDiv.append(rating);
+                    $("#gif_holder").prepend(topicDiv);
                 }
             });
         });
