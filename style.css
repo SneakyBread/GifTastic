@@ -1,0 +1,37 @@
+body {
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+#title {
+    font-weight: bolder;
+}
+
+p {
+    font-size: 20px;
+}
+
+#subtitle {
+    font-size: 25px;
+}
+
+.move_left {
+    left: 40px;
+}
+
+.move_down {
+    top: 100px;
+    right: 70px;
+}
+
+.jumbotron {
+    background-color: #ff9100;
+}
+
+#submit_button {
+    margin-top: 5px;
+}
+
+.imageWrap {
+    float: left;
+    margin: 5px 15px 0px 0px; 
+}

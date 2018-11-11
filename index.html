@@ -2,27 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GifTastic Assignment</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <!-- Reference: -->
-    <!-- https://github.com/rissawyss/GiphyAPI -->
 
-    <form>
-        <p>Enter in a car brand!</p>
-        <input id="user_input" type="text">
-        <br>
-        <input id="submit_button" type="submit" value="Submit">
-        <br><br>
-    </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-5 move_left">
+                    <i style="font-size: 50px;" class="fas fa-car-crash car"></i>
+                    <h1 id="title">GifTastic Cars!</h1>
+                </div>
+                <div class="col-md-7 move_down">
+                    <p id="subtitle">Click the car buttons to show related GIFs or add your own cars!</p>
+                </div>
+            </div>
 
+            <div class="row">
+            </div>
+        </div>
+    </div>
 
-    <!-- div holding buttons -->
-    <div id="empty-div"></div>
+    <div class="row">
+        <div class="col-md-1"></div>
 
-    <!-- div holding gifs -->
-    <div id="gif_holder"></div>
+        <div class="col-md-10">
+            <form>
+                <p>Enter in a car manufacturer!</p>
+                <input id="user_input" type="text">
+                <br>
+                <input id="submit_button" type="submit" value="Submit">
+                <br><br>
+            </form>
+
+            <!-- div holding buttons -->
+            <div id="empty-div"></div>
+            <br>
+
+            <!-- div holding gifs -->
+            <div id="gif_holder"></div>
+        </div>
+    </div>
+
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>

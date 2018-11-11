@@ -9,7 +9,7 @@ var topics = ["toyota", "mazda", "ford", "nissan", "mclaren", "bmw",
 function makesButtons() {
     $("#empty-div").empty();
     for (var i = 0; i < topics.length; i++) {
-        var btnCreator = $("<button data-Carmake='" + topics[i] +  "'>" + topics[i] + "</button>");
+        var btnCreator = $("<button style='margin: 0px 10px 10px 0px;' data-Carmake='" + topics[i] +  "'>" + topics[i] + "</button>");
             // add this to HTML ex: <button data-Carmake='toyota'>toyota</button>
             // "Hans 'Alexander'" + "Tang"
             // "Hans 'Alexander' Tang"
@@ -47,10 +47,12 @@ $(document).on("click", "button", function ajaxCall() {
             topicImage.attr("data-animate", animated);
             topicImage.attr("data-state", "still");
             topicImage.attr("class", "gifClass");
+            topicImage.css("style", "margin: 10px;");
 
             // wrap a div around the image and rating 
             topicDiv.append(topicImage);
             topicDiv.append(rating);
+            topicDiv.attr("class", "imageWrap");
 
             // add everything into larger holding div
             $("#gif_holder").prepend(topicDiv);
@@ -58,9 +60,8 @@ $(document).on("click", "button", function ajaxCall() {
     });
 });
 
-// 4. When the user clicks one of the still GIPHY images, the gif should animate. 
+// When the user clicks one of the still GIPHY images, the gif should animate. 
 // If the user clicks the gif again, it should stop playing.
-
 $(document).on("click", ".gifClass", function pause_play() {
     // store image's data-state
     var state = $(this).attr("data-state");
@@ -76,7 +77,7 @@ $(document).on("click", ".gifClass", function pause_play() {
     }
 });
 
-// 7. Add a form to your page takes the value from a user input box and adds it into your topics array. 
+// Add a form to your page takes the value from a user input box and adds it into your topics array. 
 // Then make a function call that takes each topic in the array remakes the buttons on the page.
 $(document).on("click", "#submit_button", function add2Array() {
     event.preventDefault();
