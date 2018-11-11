@@ -26,7 +26,7 @@ $(document).on("click", "button", function ajaxCall() {
     console.log("Car make selected: " + carMake);
 
     $.ajax({
-        url: "http://api.giphy.com/v1/gifs/search?q=" + carMake + 
+        url: "https://api.giphy.com/v1/gifs/search?q=" + carMake + 
         "&api_key=qxSkk3PrLddbMzsIAi33MG0osLFWaNkB&limit=10",
         method: "GET"
 
